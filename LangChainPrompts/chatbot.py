@@ -8,7 +8,7 @@ load_dotenv()
 model = ChatGoogleGenerativeAI(model="models/gemini-1.5-flash-latest", google_api_key=os.getenv("GEMINI_API_KEY"))
 
 chat_history = [
-    SystemMessage(content='You are a helpful AI assistant that summarizes research papers.')
+    SystemMessage(content='You are a helpful AI assistant for humans.')
 ]
 
 while True:
