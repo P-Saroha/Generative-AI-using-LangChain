@@ -2,7 +2,7 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv('Generative-AI-using-LangChain\\.env')
 
 model = ChatOpenAI(model = 'gpt-4o-2024-08-06',
                    temperature = 1.0,

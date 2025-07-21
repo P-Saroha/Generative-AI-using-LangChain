@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-load_dotenv()
+load_dotenv('Generative-AI-using-LangChain\\.env')
 
 embedding = OpenAIEmbeddings(model='text-embedding-3-large', dimensions=300)
 

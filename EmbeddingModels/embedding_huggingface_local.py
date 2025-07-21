@@ -1,7 +1,7 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv('Generative-AI-using-LangChain\\.env')
 
 embedding = HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-MiniLM-L6-v2')
 
