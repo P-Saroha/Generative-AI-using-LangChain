@@ -2,11 +2,12 @@ from dotenv import load_dotenv
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 
 # Load .env
 load_dotenv()
 
-# ✅ Set up Gemini model
+# Set up Gemini model
 model = ChatGoogleGenerativeAI(
     model="models/gemini-1.5-flash-latest",
     google_api_key=os.getenv("GEMINI_API_KEY")
@@ -24,11 +25,22 @@ template2 = PromptTemplate(
     input_variables=['text']
 )
 
-# Format and invoke the prompts
-prompt1 = template1.invoke({'topic': 'black hole'})
-result = model.invoke(prompt1)
+# # Format and invoke the prompts
+# prompt1 = template1.invoke({'topic': 'black hole'})
+# result = model.invoke(prompt1)
 
-prompt2 = template2.invoke({'text': result.content})
-result1 = model.invoke(prompt2)
+# prompt2 = template2.invoke({'text': result.content})
+# result1 = model.invoke(prompt2)
 
-print(result1.content)
+# print(result1.content)
+
+# Output parser
+parser = StrOutputParser()
+
+# Chain
+chain = template1 | model | parser | template2 | model | parser
+
+# Run chain
+result = chain.invoke({'topic': 'black hole'})
+
+print(result)
