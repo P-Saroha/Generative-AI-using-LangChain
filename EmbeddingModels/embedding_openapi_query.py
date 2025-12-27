@@ -10,3 +10,4 @@ result = embedding.embed_query("capital of UK?")
 print(str(result))
 
 
+

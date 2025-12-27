@@ -12,3 +12,4 @@ model = ChatOpenAI(model = 'gpt-4o-2024-08-06',
                    presence_penalty = 0.0)
 result = model.invoke('what is the capital of india?')
 print(result.content)  # Access the content of the response
+

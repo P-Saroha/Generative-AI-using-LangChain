@@ -12,3 +12,4 @@ llm = ChatOpenAI(
 result = llm.invoke('what is the capital of india?')
 print(result)
         
+

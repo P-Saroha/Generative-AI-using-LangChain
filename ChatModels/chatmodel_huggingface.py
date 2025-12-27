@@ -14,3 +14,10 @@ model = ChatHuggingFace(llm=llm)
 result = model.invoke("What is the capital of India")
 
 print(result.content)
+
+from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from dotenv import load_dotenv
+
+load_dotenv()
+
+model = HuggingFaceEndpoint(repo_id="tdfgd", task='text-generation')
